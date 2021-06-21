@@ -34,7 +34,7 @@ namespace Oop_Saldiri_Oyunu
             this.btnSec = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaldir = new DevExpress.XtraEditors.SimpleButton();
             this.lblDusmanCani = new DevExpress.XtraEditors.LabelControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctCanavar = new System.Windows.Forms.PictureBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -42,8 +42,9 @@ namespace Oop_Saldiri_Oyunu
             this.cmbOyuncuIrk = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbOyuncuBrans = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbOyuncuSilah = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btnYeniOyun = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCanavar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuIrk.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuBrans.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuSilah.Properties)).BeginInit();
@@ -84,15 +85,15 @@ namespace Oop_Saldiri_Oyunu
             this.lblDusmanCani.Size = new System.Drawing.Size(300, 30);
             this.lblDusmanCani.TabIndex = 7;
             // 
-            // pictureBox1
+            // pctCanavar
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(469, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 105);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.pctCanavar.Image = ((System.Drawing.Image)(resources.GetObject("pctCanavar.Image")));
+            this.pctCanavar.Location = new System.Drawing.Point(469, 80);
+            this.pctCanavar.Name = "pctCanavar";
+            this.pctCanavar.Size = new System.Drawing.Size(300, 105);
+            this.pctCanavar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctCanavar.TabIndex = 8;
+            this.pctCanavar.TabStop = false;
             // 
             // labelControl2
             // 
@@ -132,6 +133,7 @@ namespace Oop_Saldiri_Oyunu
             this.cmbOyuncuIrk.Name = "cmbOyuncuIrk";
             this.cmbOyuncuIrk.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuIrk.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbOyuncuIrk.Size = new System.Drawing.Size(100, 20);
             this.cmbOyuncuIrk.TabIndex = 14;
             // 
@@ -141,6 +143,7 @@ namespace Oop_Saldiri_Oyunu
             this.cmbOyuncuBrans.Name = "cmbOyuncuBrans";
             this.cmbOyuncuBrans.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuBrans.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbOyuncuBrans.Size = new System.Drawing.Size(100, 20);
             this.cmbOyuncuBrans.TabIndex = 15;
             // 
@@ -150,14 +153,26 @@ namespace Oop_Saldiri_Oyunu
             this.cmbOyuncuSilah.Name = "cmbOyuncuSilah";
             this.cmbOyuncuSilah.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuSilah.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbOyuncuSilah.Size = new System.Drawing.Size(100, 20);
             this.cmbOyuncuSilah.TabIndex = 16;
+            // 
+            // btnYeniOyun
+            // 
+            this.btnYeniOyun.Location = new System.Drawing.Point(45, 137);
+            this.btnYeniOyun.Name = "btnYeniOyun";
+            this.btnYeniOyun.Size = new System.Drawing.Size(75, 23);
+            this.btnYeniOyun.TabIndex = 17;
+            this.btnYeniOyun.Text = "Yeni Oyun";
+            this.btnYeniOyun.Visible = false;
+            this.btnYeniOyun.Click += new System.EventHandler(this.btnYeniOyun_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 192);
+            this.Controls.Add(this.btnYeniOyun);
             this.Controls.Add(this.cmbOyuncuSilah);
             this.Controls.Add(this.cmbOyuncuBrans);
             this.Controls.Add(this.cmbOyuncuIrk);
@@ -165,7 +180,7 @@ namespace Oop_Saldiri_Oyunu
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pctCanavar);
             this.Controls.Add(this.lblDusmanCani);
             this.Controls.Add(this.btnSaldir);
             this.Controls.Add(this.btnSec);
@@ -174,7 +189,7 @@ namespace Oop_Saldiri_Oyunu
             this.Text = "Saldırı Oyunu";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCanavar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuIrk.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuBrans.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuSilah.Properties)).EndInit();
@@ -189,7 +204,7 @@ namespace Oop_Saldiri_Oyunu
         private DevExpress.XtraEditors.SimpleButton btnSec;
         private DevExpress.XtraEditors.SimpleButton btnSaldir;
         private DevExpress.XtraEditors.LabelControl lblDusmanCani;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pctCanavar;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -197,6 +212,7 @@ namespace Oop_Saldiri_Oyunu
         private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuIrk;
         private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuBrans;
         private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuSilah;
+        private DevExpress.XtraEditors.SimpleButton btnYeniOyun;
     }
 }
 

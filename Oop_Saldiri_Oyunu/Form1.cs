@@ -21,6 +21,26 @@ namespace Oop_Saldiri_Oyunu
         Oyuncu oyuncu = new Oyuncu(); //instance aldık
         int dusmanCani;//dusman canını olusturduk
 
+        void yenidenBasla()
+        {
+            btnSaldir.Visible = false;
+            btnSec.Visible = false;
+            lblDusmanCani.Visible = false;
+            pctCanavar.Visible = false;
+            txtOyuncuAdi.Text = "";
+            cmbOyuncuBrans.Text = "";
+            cmbOyuncuIrk.Text = "";
+            cmbOyuncuSilah.Text = "";
+            oyuncu.SaldiriGucu = 0;
+            oyuncu.OyuncuAdi = null;
+            oyuncu.OyuncuBrans = null;
+            oyuncu.OyuncuIrk = null;
+            oyuncu.OyuncuSilah = null;
+            lblDusmanCani.Width = 300;
+            dusmanCani = lblDusmanCani.Width;
+            btnYeniOyun.Visible = true;
+        }
+
         private void btnSec_Click(object sender, EventArgs e)
         {
             if
@@ -88,16 +108,25 @@ namespace Oop_Saldiri_Oyunu
 
             if (dusmanCani <= 0) //dusmanın canı 0 dan küçükse
             {
-                XtraMessageBox.Show("Düsmanı Yendiniz");
+                XtraMessageBox.Show("Düsmanı Yendiniz");                
+                yenidenBasla();
             }
 
             if(oyuncu.SaldiriGucu == 0)
             {
-                XtraMessageBox.Show("Lütfen alanları doldurup seç butonuna basınız" +
-                    "Eğer seçtiginiz halde sorun devam ediyorsa sistem yöneticisine başvurunuz");
+                XtraMessageBox.Show("Lütfen alanları doldurup seç butonuna basınız \n Eğer seçtiginiz halde sorun devam ediyorsa sistem yöneticisine başvurunuz");
             }
 
 
+        }
+
+        private void btnYeniOyun_Click(object sender, EventArgs e)
+        {
+            btnYeniOyun.Visible = false;
+            btnSaldir.Visible = true;
+            btnSec.Visible = true;
+            lblDusmanCani.Visible = true;
+            pctCanavar.Visible = true;
         }
     }
 }
