@@ -23,6 +23,9 @@ namespace Oop_Saldiri_Oyunu
 
         private void btnSec_Click(object sender, EventArgs e)
         {
+            
+
+
             oyuncu.OyuncuAdi = txtOyuncuAdi.Text;
             oyuncu.OyuncuBrans = cmbOyuncuBrans.Text;
             oyuncu.OyuncuIrk = cmbOyuncuIrk.Text;
@@ -33,7 +36,36 @@ namespace Oop_Saldiri_Oyunu
         {
             dusmanCani =lblDusmanCani.Width; //form acılınca dusman canını dusmancanılabelnın uzunluguna eşitle
 
+            //Form açılınca arra içindeki değerleri comboxa ekledik
 
+            string[] OyuncuIrk = { "Savaşçı", "Ninja", "Sura", "Şaman", "Lycan"};
+
+            foreach (string irk in OyuncuIrk) 
+            {
+                cmbOyuncuIrk.Properties.Items.Add(irk);
+            }
+
+            string[] OyuncuBrans = { "Karabüyü", "Ofansif", "Defansif" };
+
+            foreach (string brans in OyuncuBrans)
+            {
+                cmbOyuncuBrans.Properties.Items.Add(brans);
+            }
+
+            string[] OyuncuSilah = {
+            "Saldırı Tüfeği",
+            "Nişancı Tüfeği",
+            "Tabanca",
+            "Hafif Makineli Tüfek",
+            "Pompalı Tüfek",
+            "Hafif Makineli Silah",
+            "Keskin Nişancı Tüfeği"
+            };
+
+            foreach (string silah in OyuncuSilah)
+            {
+                cmbOyuncuSilah.Properties.Items.Add(silah);
+            }
 
 
 
@@ -44,7 +76,7 @@ namespace Oop_Saldiri_Oyunu
             oyuncu.Saldir();
             dusmanCani = dusmanCani - oyuncu.SaldiriGucu; //dusman canını saldırı gucu kadar azalt
             lblDusmanCani.Width = dusmanCani; //dusman labelinin uzunluguna canını yazdık
-            MessageBox.Show($"Düşmana {oyuncu.SaldiriGucu} gücünde vurdunuz"); //ekrana vurdugumuz gücü yazdık
+            XtraMessageBox.Show($"Düşmana {oyuncu.SaldiriGucu} gücünde vurdunuz"); //ekrana vurdugumuz gücü yazdık
 
             if (dusmanCani <= 0) //dusmanın canı 0 dan küçükse
             {
