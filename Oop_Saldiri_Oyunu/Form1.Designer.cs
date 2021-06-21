@@ -31,22 +31,22 @@ namespace Oop_Saldiri_Oyunu
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtOyuncuAdi = new DevExpress.XtraEditors.TextEdit();
-            this.txtOyuncuIrk = new DevExpress.XtraEditors.TextEdit();
-            this.textOyuncuBrans = new DevExpress.XtraEditors.TextEdit();
-            this.txtOyuncuSilah = new DevExpress.XtraEditors.TextEdit();
             this.btnSec = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaldir = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblDusmanCani = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbOyuncuIrk = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbOyuncuBrans = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbOyuncuSilah = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuIrk.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textOyuncuBrans.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuSilah.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuIrk.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuBrans.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuSilah.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtOyuncuAdi
@@ -56,27 +56,6 @@ namespace Oop_Saldiri_Oyunu
             this.txtOyuncuAdi.Size = new System.Drawing.Size(100, 20);
             this.txtOyuncuAdi.TabIndex = 0;
             // 
-            // txtOyuncuIrk
-            // 
-            this.txtOyuncuIrk.Location = new System.Drawing.Point(127, 38);
-            this.txtOyuncuIrk.Name = "txtOyuncuIrk";
-            this.txtOyuncuIrk.Size = new System.Drawing.Size(100, 20);
-            this.txtOyuncuIrk.TabIndex = 1;
-            // 
-            // textOyuncuBrans
-            // 
-            this.textOyuncuBrans.Location = new System.Drawing.Point(127, 64);
-            this.textOyuncuBrans.Name = "textOyuncuBrans";
-            this.textOyuncuBrans.Size = new System.Drawing.Size(100, 20);
-            this.textOyuncuBrans.TabIndex = 2;
-            // 
-            // txtOyuncuSilah
-            // 
-            this.txtOyuncuSilah.Location = new System.Drawing.Point(127, 90);
-            this.txtOyuncuSilah.Name = "txtOyuncuSilah";
-            this.txtOyuncuSilah.Size = new System.Drawing.Size(100, 20);
-            this.txtOyuncuSilah.TabIndex = 3;
-            // 
             // btnSec
             // 
             this.btnSec.Location = new System.Drawing.Point(279, 25);
@@ -84,6 +63,7 @@ namespace Oop_Saldiri_Oyunu
             this.btnSec.Size = new System.Drawing.Size(75, 23);
             this.btnSec.TabIndex = 4;
             this.btnSec.Text = "Seç";
+            this.btnSec.Click += new System.EventHandler(this.btnSec_Click);
             // 
             // btnSaldir
             // 
@@ -92,16 +72,17 @@ namespace Oop_Saldiri_Oyunu
             this.btnSaldir.Size = new System.Drawing.Size(75, 23);
             this.btnSaldir.TabIndex = 5;
             this.btnSaldir.Text = "Saldır";
+            this.btnSaldir.Click += new System.EventHandler(this.btnSaldir_Click);
             // 
-            // labelControl1
+            // lblDusmanCani
             // 
-            this.labelControl1.Appearance.BackColor = System.Drawing.Color.DarkRed;
-            this.labelControl1.Appearance.Options.UseBackColor = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(469, 25);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(300, 30);
-            this.labelControl1.TabIndex = 7;
+            this.lblDusmanCani.Appearance.BackColor = System.Drawing.Color.DarkRed;
+            this.lblDusmanCani.Appearance.Options.UseBackColor = true;
+            this.lblDusmanCani.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblDusmanCani.Location = new System.Drawing.Point(469, 25);
+            this.lblDusmanCani.Name = "lblDusmanCani";
+            this.lblDusmanCani.Size = new System.Drawing.Size(300, 30);
+            this.lblDusmanCani.TabIndex = 7;
             // 
             // pictureBox1
             // 
@@ -145,30 +126,58 @@ namespace Oop_Saldiri_Oyunu
             this.labelControl5.TabIndex = 12;
             this.labelControl5.Text = "Silah:";
             // 
+            // cmbOyuncuIrk
+            // 
+            this.cmbOyuncuIrk.Location = new System.Drawing.Point(127, 38);
+            this.cmbOyuncuIrk.Name = "cmbOyuncuIrk";
+            this.cmbOyuncuIrk.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuIrk.Size = new System.Drawing.Size(100, 20);
+            this.cmbOyuncuIrk.TabIndex = 14;
+            // 
+            // cmbOyuncuBrans
+            // 
+            this.cmbOyuncuBrans.Location = new System.Drawing.Point(127, 64);
+            this.cmbOyuncuBrans.Name = "cmbOyuncuBrans";
+            this.cmbOyuncuBrans.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuBrans.Size = new System.Drawing.Size(100, 20);
+            this.cmbOyuncuBrans.TabIndex = 15;
+            // 
+            // cmbOyuncuSilah
+            // 
+            this.cmbOyuncuSilah.Location = new System.Drawing.Point(127, 90);
+            this.cmbOyuncuSilah.Name = "cmbOyuncuSilah";
+            this.cmbOyuncuSilah.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbOyuncuSilah.Size = new System.Drawing.Size(100, 20);
+            this.cmbOyuncuSilah.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 192);
+            this.Controls.Add(this.cmbOyuncuSilah);
+            this.Controls.Add(this.cmbOyuncuBrans);
+            this.Controls.Add(this.cmbOyuncuIrk);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lblDusmanCani);
             this.Controls.Add(this.btnSaldir);
             this.Controls.Add(this.btnSec);
-            this.Controls.Add(this.txtOyuncuSilah);
-            this.Controls.Add(this.textOyuncuBrans);
-            this.Controls.Add(this.txtOyuncuIrk);
             this.Controls.Add(this.txtOyuncuAdi);
             this.Name = "Form1";
             this.Text = "Saldırı Oyunu";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuIrk.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textOyuncuBrans.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOyuncuSilah.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuIrk.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuBrans.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOyuncuSilah.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,17 +186,17 @@ namespace Oop_Saldiri_Oyunu
         #endregion
 
         private DevExpress.XtraEditors.TextEdit txtOyuncuAdi;
-        private DevExpress.XtraEditors.TextEdit txtOyuncuIrk;
-        private DevExpress.XtraEditors.TextEdit textOyuncuBrans;
-        private DevExpress.XtraEditors.TextEdit txtOyuncuSilah;
         private DevExpress.XtraEditors.SimpleButton btnSec;
         private DevExpress.XtraEditors.SimpleButton btnSaldir;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblDusmanCani;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuIrk;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuBrans;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbOyuncuSilah;
     }
 }
 
