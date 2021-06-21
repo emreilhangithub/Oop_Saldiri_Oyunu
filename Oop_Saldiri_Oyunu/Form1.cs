@@ -23,9 +23,17 @@ namespace Oop_Saldiri_Oyunu
 
         private void btnSec_Click(object sender, EventArgs e)
         {
-            
-
-
+            if
+               (
+               string.IsNullOrEmpty(txtOyuncuAdi.Text) ||
+               string.IsNullOrEmpty(cmbOyuncuBrans.Text) ||
+               string.IsNullOrEmpty(cmbOyuncuIrk.Text) ||
+               string.IsNullOrEmpty(cmbOyuncuSilah.Text)
+               )
+            {
+                MessageBox.Show("Lütfen Tüm Alanları eksiksiz doldurunuz");
+                return;
+            }
             oyuncu.OyuncuAdi = txtOyuncuAdi.Text;
             oyuncu.OyuncuBrans = cmbOyuncuBrans.Text;
             oyuncu.OyuncuIrk = cmbOyuncuIrk.Text;
@@ -82,6 +90,14 @@ namespace Oop_Saldiri_Oyunu
             {
                 XtraMessageBox.Show("Düsmanı Yendiniz");
             }
+
+            if(oyuncu.SaldiriGucu == 0)
+            {
+                XtraMessageBox.Show("Lütfen alanları doldurup seç butonuna basınız" +
+                    "Eğer seçtiginiz halde sorun devam ediyorsa sistem yöneticisine başvurunuz");
+            }
+
+
         }
     }
 }
